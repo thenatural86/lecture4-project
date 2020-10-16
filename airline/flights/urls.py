@@ -5,7 +5,7 @@ from . import views
 urlpatterns = [
     # default route/ index view
     path("", views.index, name="index"),
-    #
+    # path for an individual flight via the flight id
     path("<int:flight_id>", views.flight, name="flight"),
     path("<int:flight_id>/book", views.book, name="book")
 ]

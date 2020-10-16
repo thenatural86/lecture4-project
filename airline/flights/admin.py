@@ -1,4 +1,5 @@
 from django.contrib import admin
+# import models
 from .models import Flight, Airport, Passenger
 
 # Register your models here.
@@ -12,6 +13,7 @@ class PassengerAdmin(admin.ModelAdmin):
     filter_horizontal = ("flights",)
 
 
+# tells admin app that i want to use the admin app to manipulate these models
 admin.site.register(Airport)
 admin.site.register(Flight, FlightAdmin)
 admin.site.register(Passenger, PassengerAdmin)

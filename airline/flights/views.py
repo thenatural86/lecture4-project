@@ -3,11 +3,15 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 # Create your views here.
 
+# import Flight and Passenger model from model.py
 from .models import Flight, Passenger
+
+# display a list of all flights
 
 
 def index(request):
     return render(request, "flights/index.html", {
+        # gets all of flights through Flight.object.all()
         "flights": Flight.objects.all()
     })
 

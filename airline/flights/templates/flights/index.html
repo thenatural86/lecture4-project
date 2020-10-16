@@ -1,11 +1,14 @@
 {% extends "flights/layout.html" %}
 
+<!-- inside the body of the page -->
 {% block body%}
 
     <h1>Flights</h1>
     <ul>
+        <!-- loop through -->
         {% for flight in flights %}
             <li>
+                <!-- path named 'flight' from urls.py, with flight.id passed into url -->
                 <a href="{% url 'flight' flight.id %}">
                     Flight {{ flight.id}}: {{ flight.origin}} to {{ flight.destination}}
                 </a>

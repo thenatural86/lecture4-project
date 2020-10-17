@@ -1,6 +1,8 @@
 {% extends "users/layout.html" %}
 
 {% block body %}
+
+    <!-- We have access to request that was used to make HTTP request -->
     <h1>Welcome, {{ request.user.first_name }} </h1>
 
     <ul>

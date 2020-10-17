@@ -18,15 +18,21 @@ def index(request):
 
 
 def login_view(request):
+    # if the request method is post
     if request.method == "POST":
+        # grab username and password from corresponding input fields
         username = request.POST["username"]
         password = request.POST["password"]
+        # authenticate and login imported from django.contrib.auth
         user = authenticate(request, username=username, password=password)
         if user is not None:
+            # if authenticated successfully, login and redirected to index route which will render user.html
             login(request, user)
             return HttpResponseRedirect(reverse("index"))
         else:
+            # otherwise redirect back to login page
             return render(request, "users/login.html", {
+                # message passed in as context
                 "message": "Invalid credentials."
             })
     return render(request, "users/login.html")

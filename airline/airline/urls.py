@@ -18,6 +18,7 @@ from django.urls import include, path
 
 urlpatterns = [
     # admin app to define/edit models
+    # path to admin, flights and users apps
     path('admin/', admin.site.urls),
     path("flights/", include("flights.urls")),
     path("users/", include("users.urls"))

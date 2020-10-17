@@ -5,10 +5,15 @@ from django.urls import reverse
 
 # Create your views here.
 
+# display information about currently signed in user
+
 
 def index(request):
+    # if user is not authenticated, user attribute comes with request object
     if not request.user.is_authenticated:
+        # redirect to login if not authenticated
         return HttpResponseRedirect(reverse("login"))
+        # otherwise render user html
     return render(request, "users/user.html")
 
 

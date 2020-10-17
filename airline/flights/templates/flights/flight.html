@@ -12,10 +12,11 @@
     </ul>
 
     <h2>Passengers</h2>
-
+<!-- loop -->
     <ul>
         {% for passenger in passengers %}
             <li>{{ passenger }}</li>
+            <!-- if list is empty -->
         {% empty %}
             <li>No  passengers.</li> 
         {% endfor %}
@@ -33,6 +34,6 @@
         <input type="submit">
     </form>
 
-    
+    <!-- link to the index view -->
     <a href="{% url 'index' %}">Back to Flight List</a>
 {% endblock %}

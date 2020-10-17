@@ -8,7 +8,7 @@
         <!-- loop through -->
         {% for flight in flights %}
             <li>
-                <!-- path named 'flight' from urls.py, with flight.id passed into url -->
+                <!-- path named 'flight' from urls.py, with flight.id passed into url as a parameter-->
                 <a href="{% url 'flight' flight.id %}">
                     Flight {{ flight.id}}: {{ flight.origin}} to {{ flight.destination}}
                 </a>

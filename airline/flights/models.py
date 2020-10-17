@@ -32,12 +32,18 @@ class Flight(models.Model):
         # can access properties of object
         return f"{self.id}: {self.origin} to {self.destination}"
 
+# create passenger model
+
 
 class Passenger(models.Model):
     first = models.CharField(max_length=64)
     last = models.CharField(max_length=64)
+    # has a many to many relationship with flights.
+    # passenger could have many flights and a flight can have many passengers
+
     flights = models.ManyToManyField(
         Flight, blank=True, related_name="passengers")
+    # string representation of a passenger
 
     def __str__(self):
         return f"{self.first} {self.last}"

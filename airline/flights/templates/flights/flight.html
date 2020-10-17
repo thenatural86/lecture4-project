@@ -24,10 +24,14 @@
 
     <h2>Add Passenger</h2>
 
+    <!-- send post request to book route, which requires a flight.id as arg -->
     <form action="{% url 'book' flight.id %}" method="post">
         {% csrf_token %}
+        <!-- drop down list with name of passenger, the view function will look for the name attribute -->
         <select name="passenger">
+            <!-- iterate everyone who is NOT a passenger -->
             {% for passenger in non_passengers %}
+            <!-- value of option is the passengers id, and the html is the passengers name -->
                 <option value="{{ passenger.id }}">{{ passenger }}</option>
             {% endfor %}
         </select>

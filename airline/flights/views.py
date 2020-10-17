@@ -30,6 +30,7 @@ def flight(request, flight_id):
         "flight": flight,
         # can call passengers on flight b/c passengers is the 'related name' on the Passenger model
         "passengers": flight.passengers.all(),
+        # exclude all the passengers that of the flights have this particular flight among their flights
         "non_passengers": Passenger.objects.exclude(flights=flight).all()
     })
 

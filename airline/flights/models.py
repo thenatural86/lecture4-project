@@ -32,6 +32,9 @@ class Flight(models.Model):
         # can access properties of object
         return f"{self.id}: {self.origin} to {self.destination}"
 
+    def is_valid_flight(self):
+        return self.origin != self.destination or self.duration > 0
+
 # create passenger model
 
 
